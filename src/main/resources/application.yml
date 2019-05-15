@@ -1,0 +1,49 @@
+
+###################  启动端口  ###################
+server:
+  port: 8888
+
+###################  spring 配置  ###################
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1 # 192.168.229.128
+    port: 6379
+    password: 123456
+    database: 0
+  aop:
+    proxy-target-class: true # false为启用jdk默认动态代理，true为cglib动态代理
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /templates
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: HTML5
+#    encoding: UTF-8
+#    cache: false
+
+###################  mybatis-plus 配置  ###################
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.springboot.model
+  global-config:
+    id-type: 0 # 主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID"
+    db-column-underline: false # 驼峰下划线转换
+    refresh-mapper: true # 刷新mapper 调试神器
+    # 逻辑删除配置（下面3个配置）
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false # 配置的缓存的全局开关

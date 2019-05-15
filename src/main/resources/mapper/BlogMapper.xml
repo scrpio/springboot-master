@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.BlogDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.springboot.model.Blog">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="author" property="author" />
+        <result column="essential" property="essential" />
+        <result column="content" property="content" />
+        <result column="importance" property="importance" />
+        <result column="status" property="status" />
+        <result column="publish_time" property="publishTime" />
+        <result column="created" property="created" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      id, title, author, essential, content, importance, status, publish_time as publishTime, created
+    </sql>
+
+</mapper>

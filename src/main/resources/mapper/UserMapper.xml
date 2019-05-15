@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.UserDao">
+    <resultMap id="BaseResultMap" type="com.springboot.model.User">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="nickname" property="nickname" />
+        <result column="password" property="password" />
+        <result column="birthday" property="birthday" />
+        <result column="sex" property="sex" />
+        <result column="phone" property="phone" />
+        <result column="email" property="email" />
+        <result column="dept_id" property="deptId" />
+        <result column="status" property="status" />
+        <result column="avatar" property="avatar" />
+        <result column="address" property="address" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id, username, nickname, birthday, sex, phone, email,
+      dept_id as deptId, status, avatar, address, create_time as createTime
+    </sql>
+
+    <sql id="Base_Column_List_With_Pwd">
+      id, username, nickname, password, birthday, sex, phone, email,
+      dept_id as deptId, status, avatar, address, create_time as createTime
+    </sql>
+
+    <select id="getRolesByUsername" resultType="String">
+    SELECT
+        r.name
+    FROM
+        tb_user u
+    INNER JOIN tb_user_role ur ON u.id = ur.user_id
+    INNER JOIN tb_role r ON ur.role_id = r.id
+    WHERE
+	  u.username = #{username}
+    </select>
+
+    <select id="getMenusByUsername" resultType="String">
+    SELECT
+        m.url
+    FROM
+        tb_user u
+    INNER JOIN tb_user_role ur ON u.id = ur.user_id
+    INNER JOIN tb_role_menu rm ON ur.role_id = rm.role_id
+    INNER JOIN tb_menu m ON rm.menu_id = m.id
+    WHERE
+	  u.username = #{username}
+    </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.LogDao">
+  <resultMap id="BaseResultMap" type="com.springboot.model.Log">
+    <id column="id" property="id" />
+    <result column="user_id" property="userId" />
+    <result column="username" property="username" />
+    <result column="log_type" property="logType" />
+    <result column="operation" property="operation" />
+    <result column="time" property="time" />
+    <result column="method" property="method" />
+    <result column="params" property="params" />
+    <result column="ip" property="ip" />
+    <result column="create_time" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id as userId, username, log_type as logType, operation, `time`, method, params, ip, create_time as createTime
+  </sql>
+</mapper>

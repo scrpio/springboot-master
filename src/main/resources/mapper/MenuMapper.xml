@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.MenuDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.springboot.model.Menu">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="perms" property="perms" />
+        <result column="url" property="url" />
+        <result column="icon" property="icon" />
+        <result column="sort" property="sort" />
+        <result column="type" property="type" />
+        <result column="parent_id" property="parentId" />
+        <result column="leaf" property="leaf" />
+        <result column="menu_show" property="menuShow" />
+        <result column="create_time" property="createTime" />
+        <result column="modified_time" property="modifiedTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, `name`, perms, url, icon,  sort, `type`, parent_id as parentId, leaf,
+        menu_show as menuShow, create_time as createTime, modified_time as modifiedTime
+    </sql>
+
+    <select id="listMenuByUserId" resultType="com.springboot.model.Menu">
+		select distinct
+        m.id, `name`, perms, url, icon,  sort, `type`, parent_id as parentId, leaf,
+        menu_show as menuShow, create_time as createTime, modified_time as modifiedTime
+		from tb_menu m
+		inner join tb_role_menu rm on m.id = rm.menu_id
+		inner join tb_user_role ur on rm.role_id =ur.role_id
+		where ur.user_id = #{userId}
+		and m.type in(0,1,2)
+		order by m.sort
+	</select>
+
+</mapper>
