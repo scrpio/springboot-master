@@ -10,10 +10,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import java.io.IOException;
 
 public class NoteUtil {
-    private static final String ACCOUNTSID = "0b4f09f7af6044dca86a373525ecf21a";
-    private static final String AUTHTOKEN = "eff49d5983c3e3c693d3dcb2ab86a878";
+    private static final String ACCOUNTSID = "";
+    private static final String AUTHTOKEN = "";
     private static final String RESTURL = "https://open.ucpaas.com/ol/sms";
-    private static final String APPID = "1e6e07e92b984886b3c96ee63b4d0957";
+    private static final String APPID = "";
     private static final String TEMPLETEID = "249500";
 
     public static HttpResponse post(CloseableHttpClient client, String url, String body)
