@@ -50,20 +50,8 @@
 
 ![image](https://github.com/scrpio/images/blob/master/index.png)
 
-![image](https://github.com/scrpio/images/blob/master/menu.png)
-
-![image](https://github.com/scrpio/images/blob/master/user.png)
-
-![image](https://github.com/scrpio/images/blob/master/dept.png)
-
-![image](https://github.com/scrpio/images/blob/master/blog.png)
-
 ![image](https://github.com/scrpio/images/blob/master/edit.png)
 
 ![image](https://github.com/scrpio/images/blob/master/redis.png)
 
 ![image](https://github.com/scrpio/images/blob/master/log.png)
-
-![image](https://github.com/scrpio/images/blob/master/redis_log.png)
-
-![image](https://github.com/scrpio/images/blob/master/dict.png)
